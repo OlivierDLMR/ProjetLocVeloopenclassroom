@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Location de vélo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Polices d'écritures -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" type="text/css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" type="text/css" rel="stylesheet">
+
+        <!-- Styles externes -->
+        <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+        
+        <!-- Styles personnalisés -->
+        <link rel="stylesheet" type="text/css" media="screen" href="./main.css">
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="accueil">
+            <div class="accueilLogo">
+                <img class="imgLogo" src="./images/velo-v-logo.png" alt="logo location de vélo" />
+            </div>
+            <h1 class="titre">RESERVATION EN LIGNE DE VOTRE VELO V</h1>
+        </header>
+
+        <!--  Diaporama   -->
+        <div id="diaporama">
+            <div class="diapo active" id="red">
+                <img src="./images/veloV-Profil.jpg" alt="affiche vélo" />
+            </div>
+            
+            <div class="diapo" id="green">
+                <img src="./images/gen.jpg" alt="affiche vélo" />
+            </div>
+            
+            <div class="diapo" id="blue">
+                <img src="./images/velov—bellecour-.jpg" alt="affiche vélo" />
+            </div>
+        </div>
+
+        <!-- Boutons du diaporama -->
+        <div class="buttons">
+            <div class="navigation-buttons">
+                <button id="leftBtn" class="boutonLeft"> 
+                    <!-- &lt;   -->
+                    <i class="fas fa-arrow-alt-circle-left"></i>
+                </button>
+
+                <button id="playBtn" class="btn btn-info play-btn">
+                    <!-- PLAY -->
+                    <i class="fas fa-play"></i>
+                </button>
+                <button id="pauseBtn" class="btn btn-info">
+                    <!-- PAUSE -->
+                    <i class="far fa-pause-circle"></i>
+                </button>
+
+                <button id="rightBtn" class="boutonRight">
+                    <!-- &gt; -->
+                    <i class="fas fa-arrow-alt-circle-right"></i>
+                </button>
+                
+            </div>
+            <!-- <div class="actions-buttons">  </div> -->
+        </div>
+
+        <div class="carteReservation">
+            <!-- Carte  -->
+            <div id="maCarte"></div>
+            
+            <div id="infoStationCtnr" class="cadreStation"> <!-- Cadre informations sur la station sélectionnée -->
+  
+              <h3 class="cadreResa">RESERVATION VELO V</h3>
+  
+              <!-- Informations sur la station sélectionnée -->
+              <ul id="infoStation" class="infos-station">
+                  <li>Nom : <span id="stationName"> <!-- Nom inséré en Javascript --> </span></li>
+                  <li>Adresse : <span id="adresseStation"> <!-- Adresse insérer en Javascript --> </span></li>
+                  <li>Etat : <span id="etatStation"> <!-- État inséré en Javascript --> </span></li>
+                  <li>Vélos disponibles : <span id="veloDispo"> <!-- Nombre inséré en Javascript --> </span></li>
+                  <li>Points d'attache disponibles : <span id="attacheDispo"> <!-- Nombre inséré en Javascript --> </span></li>
+              </ul>
+
+              <div class="btnResa">
+                  <button class="boutonResa" id="btnResa">Réserver</button> <!-- Bouton de réservation -->
+              </div>
+
+              <div class="formulaire">
+                    <p><input class="formulaire-input" id="nom" type="text" name="name" placeholder="Nom"></p>
+                    <p><input class="formulaire-input" id="prenom" type="text" name="prenom" placeholder="Prénom"></p>
+                    <canvas width="200" height="200" id="signatureCanvas" class="monCanvas"></canvas>
+                    <div class="boutons">
+                        <button id="eraseCanvas">Effacer</button>
+                    </div>
+                    <p><input class="formulaire-bouton" type="submit" value="Valider"></p>
+              </div>
+
+            <p class="no-selected-station">
+                Aucune station sélectionnée
+            </p>
+
+
+            </div>
+    
+        </div>
+        <footer>
+
+            <div id="timerContainer">
+                <div id="decompte">
+                    <h2><i class="far fa-clock"></i> État de la réservation</h2>
+                    <h3 class = "no_resa">Aucune réservation en cours</h3>
+                    <div id="address"></div>
+                    <div id="timer"></div>
+                    <div id=""></div>
+                </div>			
+            </div>		
+
+        </footer>
+        <!-- Scripts externes -->
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+        <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+
+        <!-- Scripts personnalises -->
+        <script src="./canvas.js"></script>
+        <script src="./reservation.js"></script>
+        <script src="./station.js"></script>
+        <script src="./carte.js"></script>
+        <script src="./diaporama.js"></script>
+        <script src="./main.js"></script>
+    </body>
+</html>
